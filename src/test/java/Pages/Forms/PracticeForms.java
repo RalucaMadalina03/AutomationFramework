@@ -1,5 +1,6 @@
 package Pages.Forms;
 
+import ObjectData.FormTableObject;
 import Pages.BasePage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -72,19 +73,19 @@ public class PracticeForms extends BasePage {
 
 
 
-    public void fillPracticeForm(String firstname,String lastname,String email,String mobile,String subjects,
-                                String address,String state,String city){
-        fillFirstName(firstname);
-        fillLastName(lastname);
-        fillEmailAddress(email);
+    public void fillPracticeForm(FormTableObject formTableObject){
+        fillFirstName(formTableObject.getFirstNameValue());
+        fillLastName(formTableObject.getLastNameValue());
+        fillEmailAddress(formTableObject.getEmailAddressValue());
         fillgender();
-        fillUserNumber(mobile);
-        fillSubjects(subjects);
+        fillUserNumber(formTableObject.getPrivatemobileValue());
+        fillSubjects(formTableObject.getSubjectsValue());
         fillReading();
+        elementMethods.scrollByPixels(0,450);
         fillUploadPictures();
-        fillAddress(address);
-        fillState(state);
-        fillCity(city);
+        fillAddress(formTableObject.getAddressValue());
+        fillState(formTableObject.getStateValue());
+        fillCity(formTableObject.getCityValue());
     }
     public List<String>getValuesForm(){
         List<String>formValues = new ArrayList<>();
@@ -117,7 +118,9 @@ public class PracticeForms extends BasePage {
         //subjects.sendKeys(subjectsValue);
         //subjects.sendKeys(Keys.ENTER);
     }
-    public void fillReading(){reading.click();
+    public void fillReading(){
+        //reading.click();
+        elementMethods.clickElement(reading);
     }
 
 
@@ -134,7 +137,7 @@ public class PracticeForms extends BasePage {
 
     public void fillState(String stateValue){
         elementMethods.scrollByPixels(0,450);
-        elementMethods.clickElement(state);
+        elementMethods.clickJsElement(state);
         elementMethods.fillElement(selectstate,stateValue,Keys.ENTER);
 //        JavascriptExecutor js = (JavascriptExecutor) driver;
 //        js.executeScript("window.scrollBy(0,450)", "");

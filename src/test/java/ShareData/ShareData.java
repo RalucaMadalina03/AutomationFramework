@@ -11,7 +11,7 @@ import java.time.Duration;
 public class ShareData {
     private WebDriver driver;
 
-    @BeforeMethod
+//    @BeforeMethod
     public void setup(){
         driver = new ChromeDriver();
         driver.get("https://demoqa.com/");
@@ -23,7 +23,7 @@ public class ShareData {
         js.executeScript("window.scrollBy(0,450)", "");
     }
 
-    @AfterMethod
+//    @AfterMethod
     public void clear(){
         driver.quit();
     }
