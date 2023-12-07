@@ -93,7 +93,7 @@ public class PracticeForms extends BasePage {
         return formValues;
     }
     public void fillFirstName(String firstNameValue){
-        elementsMethods.fillElement(firstname,firstNameValue);
+        elementMethods.fillElement(firstname,firstNameValue);
 
         //firstname.sendKeys(firstNameValue);
     }
@@ -106,8 +106,7 @@ public class PracticeForms extends BasePage {
     }
     public void fillgender(){
         elementMethods.clickElement(gender);
-
-        gender.click();
+        //gender.click();
     }
 
     public void fillUserNumber(String mobileValue){
@@ -134,7 +133,7 @@ public class PracticeForms extends BasePage {
 
 
     public void fillState(String stateValue){
-        elementMethods.scrollByPixels(0,);
+        elementMethods.scrollByPixels(0,450);
         elementMethods.clickElement(state);
         elementMethods.fillElement(selectstate,stateValue,Keys.ENTER);
 //        JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -144,9 +143,11 @@ public class PracticeForms extends BasePage {
 //        selectstate.sendKeys(Keys.ENTER);
     }
     public void fillCity(String cityValue){
-        city.click();
-        selectcity.sendKeys(cityValue);
-        selectcity.sendKeys(Keys.ENTER);
+       // city.click();
+        elementMethods.clickElement(city);
+        //selectcity.sendKeys(cityValue);
+        elementMethods.fillElement(selectcity,cityValue, Keys.ENTER);
+        //selectcity.sendKeys(Keys.ENTER);
     }
     public void fillSubmit(){
         elementMethods.clickJsElement(submitButton);
@@ -166,7 +167,7 @@ public class PracticeForms extends BasePage {
         LocalDateTime now = LocalDateTime.now();
         String dateOfBirthValue = dtf.format(now);
 
-        eleentMethods.validateElementMessage(thanksMessage, expectedMessage);
+        elementMethods.validateElementMessage(thanksMessage, expectedMessage);
 
 //        String actualMessage = thanksMessage.getText();
 //        Assert.assertEquals(actualMessage, expectedMessage);

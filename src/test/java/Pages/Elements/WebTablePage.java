@@ -61,9 +61,10 @@ public class WebTablePage extends BasePage {
         Integer actualTableSize= actualentries.size();
         //add.click();
         elementMethods.clickElement(add);
-
-        FirstName.sendKeys(FirstNameValue);
-        LastName.sendKeys(LastNameValue);
+        //FirstName.sendKeys(FirstNameValue);
+        elementMethods.fillElement(FirstName,FirstNameValue);
+       //LastName.sendKeys(LastNameValue);
+        elementMethods.fillElement(LastName,LastNameValue);
         email.sendKeys(emailValue);
         age.sendKeys(ageValue);
         salary.sendKeys(salaryValue);

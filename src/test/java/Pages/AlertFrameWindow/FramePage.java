@@ -19,13 +19,13 @@ public class FramePage extends BasePage {
 
 
     public void interractFirstFrame(){
-       frameMmethods.switchTo().frame("frame1");
+       frameMethods.switchToFrame("frame1");
         System.out.println(frametext.getText());
-        frameMethods.switchTo().defaultContent();
+        frameMethods.switchMainFrame();
     }
 
     public void interractsecondframe(){
-        frameMethod.switchTo().frame("frame2");
+        frameMethods.switchToFrame("frame2");
         System.out.println(frametext.getText());
 
     }
