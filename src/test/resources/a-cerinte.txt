@@ -1,0 +1,29 @@
+Practice - project
+
+a) Variables
+
+EXERCISES
+
+Clasa noua creeata
+Afiseaza pe ecran urmatoarele:
+PENTRU FIECARE LINIE SE DECLARA VARIABILE NOI
+
+- Hello World
+- Varsta ta (numar)
+- Numele si prenumele pe 2 randuri
+- (Tot) Care ii data de astazi?
+  1/13/2019
+  18:30 PM
+  Marti/Joi
+- Cat face [2+(3*4)-3]/3 ?
+  Rezultatul corect este: {rezultatul}
+- afiseaza pe ecran suma a 3 numere double intr-o variabila de acelasi tip +mesaj
+- afiseaza pe ecran produsu a 2 numere integer intr-o variabila de acelasi tip+mesaj
+- concateneaza la valoarile rezultate de mai sus mesajul "Stiu ca am calculat bine" si afiseaza-l pe ecran cu tot cu rezultatul calculului
+- Adauga la "Salut" caracterul "M" la final
+- Adauga la "Hello" caracterul "H" la inceput
+- Adauga la "Ana are mere,pere,prune" dupa fiecare vocala de la final caracterul "Z"
+- Comenteaza cerinta 2 4 6
+- Decomenteaza cerintele comentate
+- Adauga la toate rezultatele obtinute " Poti pleca acasa dupa ce iti verific munca!"
+
