@@ -1,17 +1,12 @@
 package Pages.AlertFrameWindow;
 
+import ObjectData.AlertObject;
 import Pages.BasePage;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
-
-import java.time.Duration;
+import org.w3c.dom.html.HTMLInputElement;
 
 public class AlertPage extends BasePage {
     public AlertPage(WebDriver driver) {
@@ -55,13 +50,18 @@ public class AlertPage extends BasePage {
 //        alertConfirmation.dismiss();
     }
 
-    public void interractAlertValue(String value){
+    public void interractAlertValue(String value) {
         alertValueButton.click();
-        alertMethod.feelAlert(value);
+        alertMethod.feelAlert(value);}
+
+        public void interractAlertValue(@NotNull AlertObject alertObject){
+
+
+            alertObject.getPromptAlertValue();
 
 //        Alert alertValue = driver.switchTo().alert();
 //        alertValue.sendKeys("value");
 //        alertValue.accept();
-    }
+        }
 
 }

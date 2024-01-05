@@ -16,43 +16,43 @@ public class ElementMethods {
     public ElementMethods(WebDriver driver) {
         this.driver = driver;
     }
-    private void waitVisibleElement(WebElement element){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(element));
-    }
 
-    public void clickElement(WebElement element){
-        waitVisibleElement(element);
-        element.click();
-    }
+        private void waitVisibleElement (WebElement element){
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOf(element));
+        }
 
-    public void fillElement(WebElement element,String value){
-        waitVisibleElement(element);
-        element.sendKeys(value);
-    }
-    public void fillElement(WebElement element, String value, Keys keyboardPress){
-        waitVisibleElement(element);
-        element.sendKeys(value);
-        element.sendKeys(keyboardPress);
-    }
-    public void fillElement(WebElement element,String value,String keyboardPress){
-        waitVisibleElement(element);
-        element.sendKeys(value);
-        element.sendKeys(keyboardPress);
-    }
-    public void scrollByPixels(Integer x, Integer y){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy("+x+","+y+")", "");
-    }
+        public void clickElement (WebElement element){
+            waitVisibleElement(element);
+            element.click();
+        }
 
-    public void clickJsElement(WebElement element){
-        waitVisibleElement(element);
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("arguments[0].click();",element);
+        public void fillElement (WebElement element, String value){
+            waitVisibleElement(element);
+            element.sendKeys(value);
+        }
+        public void fillElement (WebElement element, String value, Keys keyboardPress){
+            waitVisibleElement(element);
+            element.sendKeys(value);
+            element.sendKeys(keyboardPress);
+        }
+        public void fillElement (WebElement element,Keys keyboardPress){
+            waitVisibleElement(element);
+            element.sendKeys(keyboardPress);
+        }
+        public void scrollByPixels (Integer x, Integer y){
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("window.scrollBy(" + x + "," + y + ")", "");
+        }
+
+        public void clickJsElement (WebElement element){
+
+            JavascriptExecutor jse = (JavascriptExecutor) driver;
+            jse.executeScript("arguments[0].click();", element);
+        }
+        public void validateElementMessage (WebElement element, String value){
+            waitVisibleElement(element);
+            String actualMessage = element.getText();
+            Assert.assertEquals(actualMessage, value);
+        }
     }
-    public void validateElementMessage(WebElement element, String value){
-        waitVisibleElement(element);
-        String actualMessage = element.getText();
-        Assert.assertEquals(actualMessage, value);
-    }
-}

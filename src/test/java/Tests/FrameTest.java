@@ -5,8 +5,9 @@ import Pages.AlertFrameWindow.FramePage;
 import Pages.HomePage;
 import ShareData.ShareData;
 import org.testng.annotations.Test;
+import ShareData.Hooks;
 
-public class FrameTest extends ShareData {
+public class FrameTest extends Hooks {
 
 
     @Test

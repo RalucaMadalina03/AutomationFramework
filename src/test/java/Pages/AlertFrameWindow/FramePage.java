@@ -1,5 +1,6 @@
 package Pages.AlertFrameWindow;
 
+import Logger.LoggerUtility;
 import Pages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,14 +20,22 @@ public class FramePage extends BasePage {
 
 
     public void interractFirstFrame(){
-       frameMethods.switchToFrame("frame1");
+        driver.switchTo().frame("frame1");
+        LoggerUtility.info("The user switched on specofic frame");
+
         System.out.println(frametext.getText());
-        frameMethods.switchMainFrame();
+        LoggerUtility.info("The user prints the frametext value ");
+
+        driver.switchTo().defaultContent();
+        LoggerUtility.info("The user switches back on primary frame");
     }
 
     public void interractsecondframe(){
-        frameMethods.switchToFrame("frame2");
+        driver.switchTo().frame("frame2");
+        LoggerUtility.info("The user switches on the second frame");
+
         System.out.println(frametext.getText());
+        LoggerUtility.info("The user prints the frametext value");
 
     }
 }

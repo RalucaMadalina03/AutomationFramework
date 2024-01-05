@@ -1,10 +1,12 @@
 package Pages.Forms;
 
+import Logger.LoggerUtility;
 import ObjectData.FormTableObject;
 import Pages.BasePage;
-import org.openqa.selenium.*;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import java.io.File;
@@ -12,7 +14,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class PracticeForms extends BasePage {
 
@@ -95,78 +96,90 @@ public class PracticeForms extends BasePage {
     }
     public void fillFirstName(String firstNameValue){
         elementMethods.fillElement(firstname,firstNameValue);
+        LoggerUtility.info("The user fills FirstNAme with value :" + firstNameValue);
 
         //firstname.sendKeys(firstNameValue);
     }
 
     public void fillLastName(String lastNameValue){
         lastname.sendKeys(lastNameValue);
+        LoggerUtility.info("The user fills LastNAme with value :" + lastNameValue);
     }
     public void fillEmailAddress(String emailAddressValue){
         emailAddress.sendKeys(emailAddressValue);
+        LoggerUtility.info("The user fills EmailAddress with value :" + emailAddressValue);
     }
     public void fillgender(){
         elementMethods.clickElement(gender);
+        LoggerUtility.info("The user clicks on gender with value :" + gender);
         //gender.click();
     }
 
     public void fillUserNumber(String mobileValue){
-        mobile.sendKeys(mobileValue);
+        elementMethods.fillElement(mobile,mobileValue);
+        LoggerUtility.info("The user fills mobile with value :" + mobileValue);
     }
     public void fillSubjects( String subjectsValue){
         elementMethods.fillElement(subjects,subjectsValue,Keys.ENTER);
+        LoggerUtility.info("The user fills subject with value :" + subjectsValue);
         //subjects.sendKeys(subjectsValue);
         //subjects.sendKeys(Keys.ENTER);
     }
     public void fillReading(){
         //reading.click();
         elementMethods.clickElement(reading);
+        LoggerUtility.info("The user fills reading with value :" + reading);
     }
 
 
     public void fillUploadPictures(){
-        WebElement uploadPicture = driver.findElement(By.id("uploadPicture"));
+        //WebElement uploadPicture = driver.findElement(By.id("uploadPicture"));
         File file = new File("src/test/resources/a-cerinte.txt");
         uploadPicture.sendKeys(file.getAbsolutePath());
     }
     public void fillAddress(String addressValue){
-
         address.sendKeys(addressValue);
+        LoggerUtility.info("The user fills address with value :" + addressValue);
     }
 
 
     public void fillState(String stateValue){
         elementMethods.scrollByPixels(0,450);
+        LoggerUtility.info("The user scrolls down the page " );
+
+
         elementMethods.clickJsElement(state);
+        LoggerUtility.info("The user click on state ");
+
         elementMethods.fillElement(selectstate,stateValue,Keys.ENTER);
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("window.scrollBy(0,450)", "");
-//        state.click();
-//        selectstate.sendKeys(stateValue);
-//        selectstate.sendKeys(Keys.ENTER);
+        LoggerUtility.info("The user select state  " +  stateValue);
+
     }
     public void fillCity(String cityValue){
-       // city.click();
+
         elementMethods.clickElement(city);
-        //selectcity.sendKeys(cityValue);
+        LoggerUtility.info("The user clicks on city");
+
         elementMethods.fillElement(selectcity,cityValue, Keys.ENTER);
-        //selectcity.sendKeys(Keys.ENTER);
+        LoggerUtility.info("The user selects city :" + cityValue);
+
     }
     public void fillSubmit(){
         elementMethods.clickJsElement(submitButton);
-//        JavascriptExecutor jse = (JavascriptExecutor) driver;
-//        jse.executeScript("arguments[0].click();",submitButton);
+        LoggerUtility.info("The user clicks on submit button");
+
     }
     public void clickClose(){
-
         closeButton.sendKeys(Keys.ENTER);
+        LoggerUtility.info("The user clicks on close button");
     }
 
     public void validatePracticeForm(String expectedMessage,String firstNameValue,String lastNameValue,
                                      String emailAddressValue,String genderValue,String mobileValue,
                                      String subjectsValue,String readingValue,String addressValue,
-                                     String stateValue,String cityValue){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MMMM,yyyy", Locale.ENGLISH);
+                                     String stateValue,String cityValue,File file){
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MMMM,yyyy");
         LocalDateTime now = LocalDateTime.now();
         String dateOfBirthValue = dtf.format(now);
 

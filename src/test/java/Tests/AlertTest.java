@@ -30,7 +30,8 @@ public class AlertTest extends Hooks {
 
          alertPage.interractAlertDismiss();
 
-         alertPage.interractAlertValue(" Acesta este un test ");
+        alertPage.interractAlertValue(alertObject);
+
 
 
 
