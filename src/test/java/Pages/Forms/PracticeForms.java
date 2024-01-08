@@ -174,10 +174,10 @@ public class PracticeForms extends BasePage {
         LoggerUtility.info("The user clicks on close button");
     }
 
-    public void validatePracticeForm(String expectedMessage,String firstNameValue,String lastNameValue,
+    public void validatePracticeForms(String expectedMessage,String firstNameValue,String lastNameValue,
                                      String emailAddressValue,String genderValue,String mobileValue,
                                      String subjectsValue,String readingValue,String addressValue,
-                                     String stateValue,String cityValue,File file){
+                                     String stateValue,String cityValue){
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MMMM,yyyy");
         LocalDateTime now = LocalDateTime.now();

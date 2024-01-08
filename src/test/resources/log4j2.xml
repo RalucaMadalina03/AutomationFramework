@@ -3,7 +3,6 @@
  Set to debug or trace if log4j initialization is failing. -->
 <Configuration status="warn">
     <Appenders>
-
         <!-- Parallel version of logging -->
         <Routing name="RoutingAppender">
             <Routes pattern="$${ctx:threadName}">
@@ -19,7 +18,6 @@
                 </Route>
             </Routes>
         </Routing>
-
         <!-- Console appender configuration -->
         <Console name="console" target="SYSTEM_OUT">
             <PatternLayout

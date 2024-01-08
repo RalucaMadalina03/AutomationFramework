@@ -5,7 +5,6 @@ import Pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class AlertFrameWindowPage extends BasePage {
 
@@ -31,6 +30,7 @@ public class AlertFrameWindowPage extends BasePage {
 
 
         public void clickFrames(){
+           elementMethods.scrollByPixels(0,300);
             frames.click();
             LoggerUtility.info("The user clickes on frames button");
         }

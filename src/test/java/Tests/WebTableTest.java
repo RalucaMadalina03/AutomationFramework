@@ -1,14 +1,11 @@
 package Tests;
 
-import ObjectData.FormTableObject;
 import ObjectData.WebTableObject;
 import Pages.Elements.ElementsPAge;
-
-
-import Pages.HomePage;
 import Pages.Elements.WebTablePage;
-import ShareData.ShareData;
+import Pages.HomePage;
 import ShareData.Hooks;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
 public class WebTableTest extends Hooks {
@@ -23,15 +20,19 @@ public class WebTableTest extends Hooks {
         HomePage homePage = new HomePage(getDriver());
         homePage.clickelements();
 
+
+        JavascriptExecutor JS = (JavascriptExecutor) getDriver();
+        JS.executeScript("window.scrollBy(0,450)", "");
+
         ElementsPAge elementsPAge = new ElementsPAge(getDriver());
         elementsPAge.clickwebtables();
 
-        String FirstNameValue = "Popescu";
-        String LastNameValue = "Adrian";
-        String emailValue = "popescu@gmail.com";
-        String ageValue = "27";
-        String salaryValue = "2500";
-        String departamentValue = "2";
+//        String FirstNameValue = "Popescu";
+//        String LastNameValue = "Adrian";
+//        String emailValue = "popescu@gmail.com";
+//        String ageValue = "27";
+//        String salaryValue = "2500";
+//        String departamentValue = "2";
 
         WebTablePage webTablePage = new WebTablePage(getDriver());
         webTablePage.addNewEntry(webTableObject);

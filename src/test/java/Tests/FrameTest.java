@@ -3,10 +3,8 @@ package Tests;
 import Pages.AlertFrameWindow.AlertFrameWindowPage;
 import Pages.AlertFrameWindow.FramePage;
 import Pages.HomePage;
-import ShareData.ShareData;
-import org.testng.annotations.Test;
 import ShareData.Hooks;
-
+import org.testng.annotations.Test;
 public class FrameTest extends Hooks {
 
 

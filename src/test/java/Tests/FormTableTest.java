@@ -27,7 +27,7 @@ public class FormTableTest  extends Hooks {
         PracticeForms practiceForms = new PracticeForms(getDriver());
         practiceForms.fillPracticeForm(formTableObject);
 
-        List<String>FormValues = practiceForms.getValuesForm();
+        List<String> FormValues = practiceForms.getValuesForm();
         practiceForms.fillSubmit();
 
         //practiceForms.validatePracticeForm();

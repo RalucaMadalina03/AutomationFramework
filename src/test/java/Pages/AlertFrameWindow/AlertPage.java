@@ -1,12 +1,11 @@
 package Pages.AlertFrameWindow;
 
+import Logger.LoggerUtility;
 import ObjectData.AlertObject;
 import Pages.BasePage;
-import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.w3c.dom.html.HTMLInputElement;
 
 public class AlertPage extends BasePage {
     public AlertPage(WebDriver driver) {
@@ -27,15 +26,26 @@ public class AlertPage extends BasePage {
 
 
     public void interractAlertOK(){
-        alertOkButton.click();
+//        alertOkButton.click();
+     //  alertMethod.acceptAlert();
+        elementMethods.clickElement(alertOkButton);
+        LoggerUtility.info("The user clicks on alertaOkButton");
         alertMethod.acceptAlert();
+        LoggerUtility.info("The user clicks on acceptAlert");
 
 //        Alert alertOkButton = driver.switchTo().alert();
 //        alertOkButton.accept();
     }
     public void interractAlertDelay(){
-        alertDelayButton.click();
-        alertMethod.acceptAlert();
+        //alertDelayButton.click();
+
+
+        elementMethods.clickElement(alertDelayButton);
+        LoggerUtility.info("The user clicks on alertDelayButton");
+
+
+       alertMethod.acceptAlert();
+        LoggerUtility.info("The user clicks on acceptAlert");
 
 //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 //        wait.until(ExpectedConditions.alertIsPresent());
@@ -43,21 +53,30 @@ public class AlertPage extends BasePage {
 //        alertDelay.accept();
     }
     public void interractAlertDismiss(){
-        alertOkCancelButton.click();
+
+        elementMethods.clickElement(alertOkCancelButton);
+        LoggerUtility.info("The user clicks on confirmButton");
+
         alertMethod.cancelAlert();
+        LoggerUtility.info("The user clicks on cancelAlert");
+
 
 //        Alert alertConfirmation = driver.switchTo().alert();
 //        alertConfirmation.dismiss();
     }
 
-    public void interractAlertValue(String value) {
-        alertValueButton.click();
-        alertMethod.feelAlert(value);}
+    public void interractAlertValue(AlertObject alertObject) {
+//        alertValueButton.click();
+//        alertMethod.feelAlert(value);}
 
-        public void interractAlertValue(@NotNull AlertObject alertObject){
+        elementMethods.clickElement(alertValueButton);
+        LoggerUtility.info("The user clicks on promtButton");
+
+        alertMethod.feelAlert(alertObject.getPromptAlertValue());
+        LoggerUtility.info("The user fills the PromptAlertValue" + alertValueButton);
 
 
-            alertObject.getPromptAlertValue();
+//            alertObject.getPromptAlertValue();
 
 //        Alert alertValue = driver.switchTo().alert();
 //        alertValue.sendKeys("value");

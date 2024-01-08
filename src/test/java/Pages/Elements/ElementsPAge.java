@@ -1,10 +1,10 @@
 package Pages.Elements;
 
+import Logger.LoggerUtility;
 import Pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class ElementsPAge extends BasePage {
     public ElementsPAge(WebDriver driver) {
@@ -18,6 +18,7 @@ public class ElementsPAge extends BasePage {
 
     public void clickwebtables(){
         webtables.click();
+        LoggerUtility.info("The user clicks on alertDelayButton");
     }
 
 
