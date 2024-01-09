@@ -1,7 +1,6 @@
 package ProprietyUtility;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Properties;
@@ -29,8 +28,8 @@ public class ProprietyUtility {
 
     public HashMap<String, String> getAllData(){
         HashMap<String, String> testData = new HashMap<>();
-        for(String Key:properties.stringPropertyNames()){
-            testData.put(Key,properties.getProperty(Key));
+        for(String Key:properties.stringPropertyNames()){ //parcurge toate cheile din Properties
+            testData.put(Key,properties.getProperty(Key));//adaugam chei-valoare
         }
         return testData;
     }
