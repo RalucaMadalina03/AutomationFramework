@@ -30,7 +30,6 @@ public class LoggerUtility {
     public static synchronized void endTestCase(String testName){
         logger.info("=========== Execution fimished : " +testName+"================");
     }
-
     //Metoda care logg-eaza o actiune din test
 
     public  static synchronized void info(String message){
@@ -49,6 +48,8 @@ public class LoggerUtility {
 
     public static synchronized void error(String message){
         logger.error(Thread.currentThread().getName() + " : " + getCallInfo()+" "+message);
+        logger.info("=========== Test failed : ================");
+
     }
 
     //Metoda care pune tot continutul fisierelor intr-unl singur
